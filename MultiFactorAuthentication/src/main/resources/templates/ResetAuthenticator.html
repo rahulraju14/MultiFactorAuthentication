@@ -16,11 +16,11 @@
 				<div class="card-wrapper login-box" style="width: 400px; position: relative; top: 11em;">
 					<div class="card fat">
 						<div class="card-body">
-							<h4 class="card-title">Login</h4>
+							<h4 class="card-title">Reset Authenticator</h4>
 							<div  th:if="${authRequest.displayErrorMessage}">
 							<span class="error-msg">Invalid Username or Password</span>
 							</div>
-							<form th:action="@{/checkLogin}"  class="my-login-validation" th:object="${authRequest}" method="post">
+							<form th:action="@{/resetAuth}"  class="my-login-validation" th:object="${authRequest}" method="post">
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
 									<input th:field="*{userName}" id="username" type="email" class="form-control" name="username" required autofocus>
@@ -28,20 +28,17 @@
 										Email is invalid
 									</div>
 								</div>
-								<div style="display: flex;">
-								<input style="position: relative; top: 6px; margin-right: 1em;" id = "chk1" type="checkbox" name="activeMobileUser" th:field="*{mobileView}" />
-								<label for="chk1">Mobile View / </label>
-								<div class="mt-4 text-center" style="margin: 0 !important;">
-									<a style="margin-left: 6px;" href="/resetAuthPage"> Reset Authenticator</a>
-								</div>
+								<div class="form-group">
+									<label for="email">Password</label>
+									<input th:field="*{password}" id="password" type="password" class="form-control" name="password" required autofocus>
 								</div>
 								<div class="form-group m-0">
 									<button type="submit" class="btn btn-primary btn-block" onclick="sample()">
-										Next
+										Submit
 									</button>
 								</div>
-								<div class="mt-4 text-center">
-									Don't have an account? <a href="register.html">Create One</a>
+								<div style="position: relative; padding: 1em;">
+								Go back to Login <a style="text-decoration: underline;" href="/login">Login</a>
 								</div>
 							</form>
 						</div>
